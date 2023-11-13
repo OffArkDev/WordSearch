@@ -1,7 +1,7 @@
 ## Pet project for test task
 
 ### Documentation
-**LoadingScreen** - the first screen of the app, shows a progress of converting **dictionary.json** file to the SQLite database. When converting progress is succsesful it won't be showed second time when app's opened.
+**LoadingScreen** - the first screen of the app, shows a progress of converting **dictionary.json** file to the SQLite database. When converting progress is succsesful it won't be showed a second time when app's opened.
 ###
 **SearchScreen, DetailsScreen** - screens for searching a word in database and show its definition and synonyms
 ###
