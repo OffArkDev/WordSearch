@@ -1,0 +1,29 @@
+CREATE TABLE WordEntityTable (
+    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    word TEXT NOT NULL,
+    partOfSpeech TEXT NOT NULL,
+    synonyms TEXT NOT NULL,
+    definitions TEXT NOT NULL
+);
+
+
+-- Insert Query
+insertWordEntity:
+INSERT OR REPLACE
+INTO WordEntityTable (word, partOfSpeech, synonyms, definitions)
+VALUES (?, ?, ?, ?);
+
+-- Select Query
+getAllWordEntities:
+SELECT * FROM WordEntityTable;
+
+getWordEntityTableSize:
+SELECT COUNT(*) FROM WordEntityTable;
+
+getWordByName:
+SELECT *
+FROM WordEntityTable
+WHERE word = :word;
+
+deleteAllWords:
+DELETE FROM WordEntityTable;
