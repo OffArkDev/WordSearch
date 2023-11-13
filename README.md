@@ -17,3 +17,7 @@
 **Converting dictionary process** - the app takes **dictionary.json** converts it to a list of **WordEntity** using **kotlinx-serialization** and then inserts it into the database.
 In the JSON file some words have a few entries with the same "word" text. So on the DetailsScreen you can see a list with multiple different definitions for the same word.
 
+### Task text
+[link text](Test task android.pdf)
+
+
