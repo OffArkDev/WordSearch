@@ -18,6 +18,6 @@
 In the JSON file some words have a few entries with the same "word" text. So on the DetailsScreen you can see a list with multiple different definitions for the same word.
 
 ### Task text
-[file with task text](README.md)
+[file with task text](TaskAndroid.pdf)
 
 
