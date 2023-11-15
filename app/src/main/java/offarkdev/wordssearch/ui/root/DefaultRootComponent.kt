@@ -40,7 +40,7 @@ class DefaultRootComponent(
     private fun child(config: Config, childComponentContext: ComponentContext): Child {
         return when (config) {
             Search -> Child.Search(searchComponent(childComponentContext))
-            is Details -> Child.Details(config.data, detailsComponent(childComponentContext))
+            is Details -> Child.Details(detailsComponent(childComponentContext, config.data))
             Loading -> Child.Loading(loadingComponent(childComponentContext))
         }
     }
@@ -51,9 +51,10 @@ class DefaultRootComponent(
             onInput = { data -> navigation.push(Details(data)) }
         )
 
-    private fun detailsComponent(componentContext: ComponentContext): DetailsScreenComponent =
+    private fun detailsComponent(componentContext: ComponentContext, data: List<WordData>): DetailsScreenComponent =
         DefaultDetailsScreenComponent(
             componentContext = componentContext,
+            data = data
         )
 
     private fun loadingComponent(componentContext: ComponentContext): LoadDataScreenComponent =

@@ -19,15 +19,20 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.arkivanov.decompose.extensions.compose.jetpack.subscribeAsState
+import com.arkivanov.decompose.value.MutableValue
+import com.arkivanov.decompose.value.Value
 import kotlinx.parcelize.Parcelize
 
 @Composable
-fun DetailsScreen(data: List<WordData>, component: DetailsScreenComponent? = null) {
+fun DetailsScreen(component: DetailsScreenComponent) {
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.White)
     ) {
+
+        val data = component.model.subscribeAsState().value
 
         LazyColumn(
             modifier = Modifier
@@ -91,13 +96,18 @@ fun DetailsScreen(data: List<WordData>, component: DetailsScreenComponent? = nul
 @Preview
 fun DetailsScreenPreview() {
     DetailsScreen(
-        data = listOf(
-            WordData(
-                "test",
-                "this is a test definition",
-                "test1, test2, test3, test4"
+        component = object : DetailsScreenComponent {
+            override val model: Value<List<WordData>> = MutableValue(
+                listOf(
+                    WordData(
+                        "test",
+                        "this is a test definition",
+                        "test1, test2, test3, test4"
+                    )
+                )
             )
-        )
+        }
+
     )
 }
 

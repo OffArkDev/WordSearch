@@ -9,7 +9,7 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.launch
 import offarkdev.WordEntityTable
 import offarkdev.wordssearch.coroutineScope
-import offarkdev.wordssearch.data.DataSource
+import offarkdev.wordssearch.data.sql.SqlDataSource
 import offarkdev.wordssearch.inject
 import offarkdev.wordssearch.ui.search.SearchState.Error
 import offarkdev.wordssearch.ui.search.SearchState.Idle
@@ -23,7 +23,7 @@ class DefaultSearchScreenComponent(
     private val onInput: (List<WordData>) -> Unit,
 ) : SearchScreenComponent, ComponentContext by componentContext {
 
-    private val dataSource: DataSource by inject()
+    private val dataSource: SqlDataSource by inject()
 
     private val scope = componentContext.coroutineScope()
 

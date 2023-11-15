@@ -31,9 +31,8 @@ import offarkdev.wordssearch.ui.loading.DataSetState.Loading
 @Composable
 fun LoadingScreen(component: LoadDataScreenComponent) {
 
-    val context = LocalContext.current
     LaunchedEffect(true) {
-        component.load(context)
+        component.load()
     }
 
     Box(
@@ -75,6 +74,6 @@ fun LoadingScreen(component: LoadDataScreenComponent) {
 fun LoadingScreenPreview() {
     LoadingScreen(component = object : LoadDataScreenComponent {
         override val model: Value<DataSetState> = MutableValue(Loading(1))
-        override fun load(context: Context) {}
+        override fun load() {}
     })
 }

@@ -45,7 +45,7 @@ class MainActivity : ComponentActivity() {
             ) {
                 when (val instance = it.instance) {
                     is Search -> SearchScreen(instance.component)
-                    is Details -> DetailsScreen(instance.data, instance.component)
+                    is Details -> DetailsScreen(instance.component)
                     is Loading -> LoadingScreen(instance.component)
                 }
             }

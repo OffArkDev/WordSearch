@@ -1,11 +1,8 @@
-package offarkdev.wordssearch.data
+package offarkdev.wordssearch.data.sql
 
-import kotlinx.coroutines.flow.MutableStateFlow
 import offarkdev.WordEntityTable
 
-interface DataSource {
-
-    val progressState: MutableStateFlow<Int>
+interface SqlDataSource {
 
     suspend fun insertWordEntity(
         word: String,
@@ -14,10 +11,10 @@ interface DataSource {
         definitions: String,
     )
 
-    suspend fun insertDataFromJson(jsonData: String)
-
     suspend fun getSize() : Long?
 
     suspend fun getWord(text: String): List<WordEntityTable>
+
+    suspend fun deleteAllWords()
 
 }
